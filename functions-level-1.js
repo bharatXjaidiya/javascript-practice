@@ -15,7 +15,7 @@ function greeting(name = "Guest"){
 }
 // 4. Use rest parameters to make a function that adds unlimited numbers.
 function addUnlimited(...rest){
-    let sum = null;
+    let sum = 0;
     rest.forEach(element => {
         sum += element;
     });
