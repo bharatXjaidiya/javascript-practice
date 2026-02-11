@@ -80,6 +80,11 @@ let fun = profile.printName();
 
 // SECTION 5: Constructor Function and Prototype
 // 	15.	Create a constructor function called Vehicle that accepts type and wheels.
+// 	16.	Add a method describe inside the constructor and observe memory behavior when multiple objects are created.
+// 	17.	Move the same method to Vehicle.prototype and repeat the test.
+// 	18.	Explain why the prototype approach is preferred.
+
+// ⸻
 function Vehicle(type , wheels){
     this.type = type;
     this.wheels = wheels;
@@ -87,36 +92,26 @@ function Vehicle(type , wheels){
         console.log(this.type,this.wheels)
     }
 }
-
+Vehicle.prototype.sharedDescribe=function(){
+    console.log(this.type,this.wheels)
+}
 let v1 = new Vehicle("fortuner",4);
 let v2 = new Vehicle("fortuner",4);
-v1.describe();
-v2.describe();
-// 	16.	Add a method describe inside the constructor and observe memory behavior when multiple objects are created.
-// 	17.	Move the same method to Vehicle.prototype and repeat the test.
-// 	18.	Explain why the prototype approach is preferred.
-
-// ⸻
 
 // SECTION 6: call Method Practice
 // 	19.	Create a function showBrand that prints this.brand.
 // 	20.	Create two different objects with brand values.
 // 	21.	Use call to execute showBrand for both objects.
 // 	22.	Explain what problem call is solving here.
-
 // ⸻
-
-// SECTION 7: apply Method Practice
-// 	23.	Create a function introduce that accepts two arguments: city and role, and prints name, city, and role using this.name.
-// 	24.	Create an object with a name property.
-// 	25.	Use apply to call introduce using the object and an array of arguments.
-// 	26.	Explain in simple words how apply differs from call.
-
-// ⸻
-
-// SECTION 8: bind Method Practice
-// 	27.	Create a function greet that prints “Hello” followed by this.name.
-// 	28.	Bind this function to an object and store the returned function in a variable.
-// 	29.	Call the bound function later and observe the output.
-// 	30.	Explain why bind is useful when functions are executed later or inside callbacks.
-// Displaying Day 58 - Question Sheet 2.md.
+function showBrand(){
+    console.log(this.brand)
+}
+let obj1={
+    brand:"nicke"
+}
+let obj2={
+    brand:"hp"
+}
+showBrand.call(obj1)
+showBrand.call(obj2)
